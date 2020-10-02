@@ -33,33 +33,33 @@ public final class Symbol {
     }()
 
     public var isPublic: Bool {
-        if api is Unknown {
-            return true
-        }
+//         if api is Unknown {
+//             return true
+//         }
 
-        if api.modifiers.contains(where: { $0.name == "public" || $0.name == "open" }) {
-            return true
-        }
+//         if api.modifiers.contains(where: { $0.name == "public" || $0.name == "open" }) {
+//             return true
+//         }
 
-        if let `extension` = `extension`,
-            `extension`.modifiers.contains(where: { $0.name == "public" }) {
-            return true
-        }
+//         if let `extension` = `extension`,
+//             `extension`.modifiers.contains(where: { $0.name == "public" }) {
+//             return true
+//         }
 
-        if let symbol = context.compactMap({ $0 as? Symbol }).last,
-            symbol.api.modifiers.contains(where: { $0.name == "public" })
-        {
-            switch symbol.api {
-            case is Enumeration:
-                return api is Enumeration.Case
-            case is Protocol:
-                return api is Function || api is Variable
-            default:
-                break
-            }
-        }
+//         if let symbol = context.compactMap({ $0 as? Symbol }).last,
+//             symbol.api.modifiers.contains(where: { $0.name == "public" })
+//         {
+//             switch symbol.api {
+//             case is Enumeration:
+//                 return api is Enumeration.Case
+//             case is Protocol:
+//                 return api is Function || api is Variable
+//             default:
+//                 break
+//             }
+//         }
 
-        return false
+        return true
     }
 
     public var isDocumented: Bool {
